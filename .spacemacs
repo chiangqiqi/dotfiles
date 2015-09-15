@@ -20,15 +20,16 @@
      auto-completion
      python
      better-defaults
-     emacs-lisp
-     git
+     ;;emacs-lisp
+     ;;git
      markdown
      org
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
-     syntax-checking
-     version-control
+     ;;syntax-checking
+     ;;version-control
+     key-chord
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -67,19 +68,19 @@ before layers configuration."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(solarized-light
-                         solarized-dark
-                         spacemacs-light
+   dotspacemacs-themes '(spacemacs-light
                          spacemacs-dark
                          leuven
                          monokai
-                         zenburn)
+                         zenburn
+                         solarized-light
+                         solarized-dark)
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 15 
+                               :size 13 
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -101,7 +102,7 @@ before layers configuration."
    ;; auto-save the file in-place, `cache' to auto-save the file to another
    ;; file stored in the cache directory and `nil' to disable auto-saving.
    ;; Default value is `cache'.
-   dotspacemacs-auto-save-file-location 'cache
+   dotspacemacs-auto-save-file-location 'nil
    ;; If non nil then `ido' replaces `helm' for some commands. For now only
    ;; `find-files' (SPC f f) is replaced.
    dotspacemacs-use-ido nil
@@ -161,8 +162,6 @@ before layers configuration."
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
-  (setq-default dotspacemacs-configuration-layers '(python))
-  (setq tramp-default-method "ssh")
 )
 
 ;; Do not write anything past this comment. This is where Emacs will

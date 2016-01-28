@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: mongofind
+# key: mf
+# --
+${0:db}.${1:table}.find({${2: commantd}})

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: abstract class extends
+# key: ace
+# --
+abstract class $1 extends $2 {
+$3
+}

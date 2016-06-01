@@ -9,15 +9,20 @@
 (defun json-values (args)
   "docsring"
   (interactive "P")
-  (message (list (region-beginning) (region-end)))
+  (let (a 1)
+    (message "My list is: %S" (list 8 2 3)))
+     ;; (message (list (region-beginning) (region-end)))
   )
 
-(defun readlines ( )
-  "docstring"
-  (interactive "P")
-  (let ((beg (line-beginning-position 1))
-        (end (line-beginning-position 2)))
-    beg)
+(defun myFunction (beg end)
+  "Prints region start and end positions"
+  (interactive "r")
+  (save-excursion
+    (save-restriction
+      (narrow-to-region beg end)
+      (goto-char (point-min))
+      (message "Region begin at: %d, end at: %d" beg end)
+      ))
   )
 
 (defun org-table-create-or-convert-from-region-json ()
@@ -45,3 +50,18 @@ If there is no such region, create an empty table with `org-table-create'."
             99))
 ))
 
+(defun yay ()
+  "Insert “Yay!” at cursor position."
+  (interactive)
+  (insert "Yay!"))
+
+(defun oowrite-table-convert (col beg end)
+  (interactive "nColumns of table: \nr")
+  (save-excursion
+    (save-restriction
+      (narrow-to-region beg end)
+      (goto-char (point-min))
+      (while (not (eobp))
+        (subst-char-in-region
+         (point) (progn (forward-line col) (1- (point)))
+         ?\n ?\t)))))

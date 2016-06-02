@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: srccode
+# key: srccode
+# --
+#+BEGIN_SRC ${1:options}
+$0
+#+END_SRC

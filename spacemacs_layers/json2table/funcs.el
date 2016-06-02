@@ -1,4 +1,5 @@
 (require 'org)
+(require 'json)
 
 (defun funqiqi (args)
   "nothing"
@@ -21,9 +22,16 @@
     (save-restriction
       (narrow-to-region beg end)
       (goto-char (point-min))
-      (message "Region begin at: %d, end at: %d" beg end)
-      ))
-  )
+      (while (not (eobp))
+        (let ((cr
+              (buffer-substring
+               (point)
+               (line-end-position)
+               )
+              )) (json-read-from-string cr))
+        (forward-line)
+        ))
+      (message "Region begin at: %d, end at: %d" beg end)))
 
 (defun org-table-create-or-convert-from-region-json ()
   "Convert region to table, or create an empty table.
@@ -36,19 +44,6 @@ If there is no such region, create an empty table with `org-table-create'."
   (if (org-region-active-p)
       (org-table-convert-region-json (region-beginning) (region-end))
     (org-table-create arg)))
-
-(defun org-table-convert-region-json (beg0 end0)
-  "Convert region to a table.
-   beginning-of-line is used to go to line header"
-  (interactive "r\nP")
-  (message "create table from json")
-  (let* ((beg (min beg0 end0))
-	 (end (max beg0 end0)) re)
-    (if
-(> (count-lines beg end) 99)
-(user-error "Region is longer than `org-table-convert-region-max-lines' (%s) lines; not converting"
-            99))
-))
 
 (defun yay ()
   "Insert “Yay!” at cursor position."

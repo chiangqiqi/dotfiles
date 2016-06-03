@@ -1,0 +1,4 @@
+* Some notes
+
+[[https://www.gnu.org/software/emacs/manual/html_node/elisp/Association-Lists.html][assoc list]] 看起来是 ~lisp~ 中类似于 dict 的数据结构
+

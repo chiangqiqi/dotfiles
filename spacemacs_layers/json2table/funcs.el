@@ -15,6 +15,13 @@
      ;; (message (list (region-beginning) (region-end)))
   )
 
+
+;; use dolist to deal with loop thing
+(defun reverse (list)
+  (let (value)
+    (dolist (elt list value)
+      (setq value (cons elt value)))))
+
 (defun myFunction (beg end)
   "Prints region start and end positions"
   (interactive "r")

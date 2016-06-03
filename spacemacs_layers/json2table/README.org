@@ -12,8 +12,7 @@
  - [[Key bindings][Key bindings]]
 
 * Description
-This layer does wonderful things:
-  - transform json file to a org table and vice versa
+尝试将 json 格式的表格转换成 ~org mode~ 中的表格格式。 
 
 * Install
 To use this contribution add it to your =~/.spacemacs=

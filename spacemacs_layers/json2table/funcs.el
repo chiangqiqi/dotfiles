@@ -4,6 +4,9 @@
 (defun getkeys (assl)
     (mapcar '(lambda (x) (car x)) assl))
 
+(defun getvalues (assl)
+  (mapcar '(lambda (x) (cdr x)) assl))
+
 (defun myFunction (beg end)
   "Prints region start and end positions"
   (interactive "r")

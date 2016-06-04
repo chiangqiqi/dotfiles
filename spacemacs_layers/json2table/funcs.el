@@ -1,26 +1,8 @@
 (require 'org)
 (require 'json)
 
-(defun funqiqi (args)
-  "nothing"
-  (interactive "P")
-  (message "this is shit")
-  )
-
-(defun json-values (args)
-  "docsring"
-  (interactive "P")
-  (let (a 1)
-    (message "My list is: %S" (list 8 2 3)))
-     ;; (message (list (region-beginning) (region-end)))
-  )
-
-
-;; use dolist to deal with loop thing
-(defun reverse (list)
-  (let (value)
-    (dolist (elt list value)
-      (setq value (cons elt value)))))
+(defun getkeys (assl)
+    (mapcar '(lambda (x) (car x)) assl))
 
 (defun myFunction (beg end)
   "Prints region start and end positions"

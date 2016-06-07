@@ -7,7 +7,7 @@
 (defun getvalues (assl)
   (mapcar '(lambda (x) (cdr x)) assl))
 
-(defun myFunction (beg end)
+(defun json2table (beg end)
   "Prints region start and end positions"
   (interactive "r")
   (save-excursion
@@ -20,7 +20,13 @@
                (point)
                (line-end-position)
                )
-              )) (json-read-from-string cr))
+              ))
+          (let ((values (getvalues
+                       (json-read-from-string cr))))
+            (insert
+             (mapconcat 'identity
+              values, "| ")))
+          )
         (forward-line)
         ))
       (message "Region begin at: %d, end at: %d" beg end)))

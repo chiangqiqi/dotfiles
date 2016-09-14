@@ -89,8 +89,8 @@
 
 (eval-after-load "linum"
   '(set-face-attribute 'linum nil
-                       :background "#191919"
-                       :foreground "gray"
+                       ;; :background "#191919"
+                       ;; :foreground "gray"
                        :height 0.9)
   ;;'(set-face-attribute 'linum nil :height 140)
   )

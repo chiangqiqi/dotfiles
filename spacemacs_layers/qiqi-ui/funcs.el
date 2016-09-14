@@ -15,7 +15,7 @@
     ;; persp-mode with different APIs
     (progn
       (or (not (string= persp-nil-name (safe-persp-name (get-frame-persp))))
-          "Default")
+          "Dft")
       (let ((name (safe-persp-name (get-frame-persp))))
         (propertize (concat "[" name "] ")
                     'face 'font-lock-preprocessor-face

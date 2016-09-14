@@ -73,8 +73,10 @@
                           (window-number-mode-line)
                           'face
                           'font-lock-type-face))
-                 " "
-                 '(:eval (zilongshanren/update-persp-name))
+
+                 ;; 显示layout name
+                 ;; " "
+                 ;; '(:eval (zilongshanren/update-persp-name))
 
                  "%1 "
                  ;; the buffer name; the file name as a tool tip
@@ -92,7 +94,7 @@
 
                  ;; was this buffer modified since the last save?
                  '(:eval (when (buffer-modified-p)
-                           (concat "," (propertize "Mod"
+                           (concat "," (propertize "M"
                                                    'face 'font-lock-warning-face
                                                    'help-echo "Buffer has been modified"))))
 
@@ -145,8 +147,9 @@
                  (propertize "%02c" 'face 'font-lock-type-face)
                  ") "
 
-                 '(:eval (when (> (window-width) 90)
-                           (buffer-encoding-abbrev)))
+                 ;; 文本编码格式
+                 ;; '(:eval (when (> (window-width) 90)
+                 ;;           (buffer-encoding-abbrev)))
                  mode-line-end-spaces
                  ;; add the time, with the date and the emacs uptime in the tooltip
                  '(:eval (propertize (format-time-string "%H:%M")

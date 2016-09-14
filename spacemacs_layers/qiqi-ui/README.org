@@ -4,3 +4,13 @@
 fork from zilongshanren
 
 * 改动
+** header-line  
+本来是被 ~which-function-mode~ 用来展示函数名， 暂时注释掉。
+#+BEGIN_SRC emacs-lisp
+(setq-default header-line-format
+              '((which-func-mode ("" which-func-format " "))))
+#+END_SRC
+
+* 功能
+** evil-fold
+~z a~ ~toggle-fold~ 折叠当前代码区域

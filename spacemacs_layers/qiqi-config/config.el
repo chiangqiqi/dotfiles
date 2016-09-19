@@ -19,7 +19,9 @@
             (org-indent-mode)))
 
 ;; 添加 org-mode 中的 electric-pairs 
-(defvar org-electric-pairs '((?= . ?=) (?$ . ?$)) "Electric pairs for `org-mode'.")
+(defvar org-electric-pairs
+  '( (?$ . ?$) (?= . ?=)  (?~ . ?~))
+  "Electric pairs for `org-mode'.")
 
 (defun org-add-electric-pairs ()
   "Add =, $ as electric pairs."

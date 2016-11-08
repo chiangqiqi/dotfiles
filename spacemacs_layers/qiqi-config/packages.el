@@ -29,7 +29,7 @@
 
 ;;; Code:
 
-(defconst qiqiconfig-packages
+(defconst qiqi-config-packages
   '()
   "The list of Lisp packages required by the qiqiconfig layer.
 
@@ -58,7 +58,7 @@ Each entry is either:
       - A list beginning with the symbol `recipe' is a melpa
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
 
-(defun qiqiconfig/init-qiqiconfig ()
+(defun qiqi-config/init-qiqiconfig ()
   (spacemacs/set-leader-keys "hsH" 'hs-hide-all)
   (spacemacs/set-leader-keys "hsh" 'hs-hide-block)
   (spacemacs/set-leader-keys "hsS" 'hs-show-all)

@@ -13,8 +13,8 @@
 
 * Description
 This layer does wonderful things:
-  - thing01
-
+  - personal configuration
+    
 * Install
 To use this contribution add it to your =~/.spacemacs=
 

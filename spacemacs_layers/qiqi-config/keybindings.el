@@ -9,8 +9,8 @@
 ;;
 ;;; License: GPLv3
 
-(global-set-key (kbd "C-E") 'move-end-of-line)
-(global-set-key (kdb "M-ret") 'indent-new-comment-line)
+(global-set-key (kbd "<C-E>") 'move-end-of-line)
+(global-set-key (kbd "<M-enter>") 'indent-new-comment-line)
 
 (spacemacs/set-leader-keys "hsH" 'hs-hide-all)
 (spacemacs/set-leader-keys "hsh" 'hs-hide-block)

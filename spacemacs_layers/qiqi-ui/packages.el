@@ -36,9 +36,8 @@
     popwin
     (whitespace :location built-in)
     ;; if you wnat to use spaceline, please comment out zilong-mode-line
-    ;; spaceline
+    spaceline
     ;; beacon
-    ;; evil-vimish-fold
     )
   )
 
@@ -207,7 +206,7 @@ This segment overrides the modeline functionality of `org-mode-line-string'."
          process
          (flycheck-error flycheck-warning flycheck-info)
          ;; (python-pyvenv :fallback python-pyenv)
-         ((minor-modes :separator spaceline-minor-modes-separator) :when active)
+         ;; ((minor-modes :separator spaceline-minor-modes-separator) :when active)
          (org-pomodoro :when active)
          (org-clock :when active)
          nyan-cat)
@@ -231,40 +230,6 @@ This segment overrides the modeline functionality of `org-mode-line-string'."
 
       (spacemacs/toggle-beacon-on))
     :config (spacemacs|hide-lighter beacon-mode)))
-
-(defun qiqi-ui/init-evil-vimish-fold ()
-  (use-package evil-vimish-fold
-    :init
-    (vimish-fold-global-mode 1)
-    :config
-    (progn
-      (define-key evil-normal-state-map (kbd "zf") 'vimish-fold)
-      (define-key evil-visual-state-map (kbd "zf") 'vimish-fold)
-      (define-key evil-normal-state-map (kbd "zd") 'vimish-fold-delete)
-      (define-key evil-normal-state-map (kbd "za") 'vimish-fold-toggle))))
-
-(defun qiqi-ui/post-init-hl-anything ()
-  (progn
-    (hl-highlight-mode -1)
-    (spacemacs|add-toggle toggle-hl-anything
-      :status hl-highlight-mode
-      :on (hl-highlight-mode)
-      :off (hl-highlight-mode -1)
-      :documentation "Toggle highlight anything mode."
-      :evil-leader "ths")))
-
-(defun qiqi-ui/post-init-pangu-spacing ()
-  (progn
-    ;; add toggle options
-    (spacemacs|add-toggle toggle-pangu-spaceing
-      :status pangu-spacing-mode
-      :on (global-pangu-spacing-mode)
-      :off (global-pangu-spacing-mode -1)
-      :documentation "Toggle pangu spacing mode"
-      :evil-leader "ots")
-    (add-hook 'markdown-mode-hook
-              '(lambda ()
-                 (set (make-local-variable 'pangu-spacing-real-insert-separtor) t)))))
 
 (defun qiqi-ui/post-init-popwin ()
   (progn

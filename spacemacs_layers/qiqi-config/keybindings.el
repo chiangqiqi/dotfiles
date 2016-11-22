@@ -18,4 +18,4 @@
 (spacemacs/set-leader-keys "hss" 'hs-show-block)
 ;; helm imenu
 (spacemacs/set-leader-keys "ha" 'helm-imenu)
-
+(spacemacs/set-leader-keys "xdp" 'delete-pair)

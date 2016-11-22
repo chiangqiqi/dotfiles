@@ -64,7 +64,6 @@
 
   ;; (setq-default mode-line-misc-info
   ;;               (assq-delete-all 'which-func-mode mode-line-misc-info))
-
   )
 
 (defun qiqi-ui/post-init-diminish ()

@@ -1,31 +1,26 @@
-(use-package org
-  :defer t
-  :config
-  (require 'org)
-  (require 'ob-latex)
-  (require 'ox-latex)
-  (require 'elec-pair)
+;; 给 =org-pomodoro= 增加桌面通知功能
 
-;;; Notes
-(setq org-default-notes-file (concat org-directory "/notes.org"))
-;; any headline with level <= 2 is a target
-(setq org-refile-targets '((org-agenda-files :maxlevel . 2)))
+(defun notify-osx (title message)
+  (call-process "terminal-notifier"		 
+                nil 0 nil		 
+                "-group" "Emacs"		 
+                "-title" title		 
+                "-sender" "org.gnu.Emacs"		 
+                "-message" message		 
+                "-activate" "oeg.gnu.Emacs"))
 
-(add-hook 'org-mode-hook
+(add-hook 'org-pomodoro-finished-hook
           (lambda ()
-            (local-set-key (kbd "M-j") 'org-insert-heading)
-            (local-set-key (kbd "C-c d") 'fb-insert-diff)
-            (local-set-key (kbd "C-c t") 'fb-insert-task)
-            (org-indent-mode)))
+            (notify-osx "Pomodoro completed!" "Time for a break.")))
 
-;; 添加 org-mode 中的 electric-pairs 
-(defvar org-electric-pairs
-  '( (?$ . ?$) (?= . ?=)  (?~ . ?~))
-  "Electric pairs for `org-mode'.")
+(add-hook 'org-pomodoro-break-finished-hook
+          (lambda ()
+            (notify-osx "Pomodoro Short Break Finished" "Ready for Another?")))
 
-(defun org-add-electric-pairs ()
-  "Add =, $ as electric pairs."
-  (setq-local electric-pair-pairs (append electric-pair-pairs org-electric-pairs))
-  (setq-local electric-pair-text-pairs electric-pair-pairs))
+(add-hook 'org-pomodoro-long-break-finished-hook
+          (lambda ()
+            (notify-osx "Pomodoro Long Break Finished" "Ready for Another?")))
 
-(add-hook 'org-mode-hook 'org-add-electric-pairs))
+(add-hook 'org-pomodoro-killed-hook    
+          (lambda ()
+            (notify-osx "Pomodoro Killed" "One does not simply kill a pomodoro!")))

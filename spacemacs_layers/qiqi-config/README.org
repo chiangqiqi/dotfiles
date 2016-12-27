@@ -1,29 +1,34 @@
-#+TITLE: qiqiconfig layer
-#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="../css/readtheorg.css" />
-
-#+CAPTION: logo
+#+TITLE: qiqi-config layer
 
 # The maximum height of the logo should be 200 pixels.
-[[img/qiqiconfig.png]]
+[[img/qiqi-config.png]]
 
-* Table of Contents                                        :TOC_4_org:noexport:
- - [[Description][Description]]
- - [[Install][Install]]
- - [[Key bindings][Key bindings]]
+# TOC links should be GitHub style anchors.
+* Table of Contents                                        :TOC_4_gh:noexport:
+ - [[#description][Description]]
+ - [[#install][Install]]
+ - [[#key-bindings][Key bindings]]
+ - [[#pomodoro-hooks][pomodoro hooks]]
 
 * Description
 This layer does wonderful things:
-  - personal configuration
-    
-* Install
-To use this contribution add it to your =~/.spacemacs=
+  - thing01
 
-#+begin_src emacs-lisp
-  (setq-default dotspacemacs-configuration-layers '(qiqiconfig))
-#+end_src
+* Install
+To use this configuration layer, add it to your =~/.spacemacs=. You will need to
+add =qiqi-config= to the existing =dotspacemacs-configuration-layers= list in this
+file.
 
 * Key bindings
 
-| Key Binding     | Description    |
-|-----------------+----------------|
-| ~<SPC> x x x~   | Does thing01   |
+| Key Binding | Description    |
+|-------------+----------------|
+| ~SPC x x x~ | Does thing01   |
+# Use GitHub URLs if you wish to link a Spacemacs documentation file or its heading.
+# Examples:
+# [[https://github.com/syl20bnr/spacemacs/blob/master/doc/VIMUSERS.org#sessions]]
+# [[https://github.com/syl20bnr/spacemacs/blob/master/layers/%2Bfun/emoji/README.org][Link to Emoji layer README.org]]
+# If space-doc-mode is enabled, Spacemacs will open a local copy of the linked file.
+
+* pomodoro hooks
+  增加了 mac 上的桌面提醒功能 [[http://guleilab.com/2016/05/05/OrgPomodoroNotifier/][链接]]  

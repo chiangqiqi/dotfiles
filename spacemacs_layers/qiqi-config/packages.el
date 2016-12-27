@@ -1,4 +1,4 @@
-;;; packages.el --- qiqiconfig layer packages file for Spacemacs.
+;;; packages.el --- qiqi-config layer packages file for Spacemacs.
 ;;
 ;; Copyright (c) 2012-2016 Sylvain Benner & Contributors
 ;;
@@ -18,20 +18,20 @@
 ;;
 ;;
 ;; Briefly, each package to be installed or configured by this layer should be
-;; added to `qiqiconfig-packages'. Then, for each package PACKAGE:
+;; added to `qiqi-config-packages'. Then, for each package PACKAGE:
 ;;
 ;; - If PACKAGE is not referenced by any other Spacemacs layer, define a
-;;   function `qiqiconfig/init-PACKAGE' to load and initialize the package.
+;;   function `qiqi-config/init-PACKAGE' to load and initialize the package.
 
 ;; - Otherwise, PACKAGE is already referenced by another Spacemacs layer, so
-;;   define the functions `qiqiconfig/pre-init-PACKAGE' and/or
-;;   `qiqiconfig/post-init-PACKAGE' to customize the package as it is loaded.
+;;   define the functions `qiqi-config/pre-init-PACKAGE' and/or
+;;   `qiqi-config/post-init-PACKAGE' to customize the package as it is loaded.
 
 ;;; Code:
 
 (defconst qiqi-config-packages
-  '()
-  "The list of Lisp packages required by the qiqiconfig layer.
+  '(appt)
+  "The list of Lisp packages required by the qiqi-config layer.
 
 Each entry is either:
 
@@ -57,14 +57,6 @@ Each entry is either:
 
       - A list beginning with the symbol `recipe' is a melpa
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
-
-(defun qiqi-config/init-qiqiconfig ()
-  (spacemacs/set-leader-keys "hsH" 'hs-hide-all)
-  (spacemacs/set-leader-keys "hsh" 'hs-hide-block)
-  (spacemacs/set-leader-keys "hsS" 'hs-show-all)
-  (spacemacs/set-leader-keys "hss" 'hs-show-block)
-  )
-
 
 
 ;;; packages.el ends here

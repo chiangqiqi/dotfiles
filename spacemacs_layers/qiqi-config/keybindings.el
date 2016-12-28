@@ -20,3 +20,17 @@
      ))
 
 
+;; super + 方向键 操作窗口移动
+(global-set-key (kbd "s-<left>") 'evil-window-left)
+(global-set-key (kbd "s-<right>") 'evil-window-right)
+(global-set-key (kbd "s-<up>") 'evil-window-up)
+(global-set-key (kbd "s-<down>") 'evil-window-down)
+
+;; f5 绑定到日程 打开或者关闭
+(defun interactively-open-org-agenda ()
+  ;; (interactive "bjust msg current buffer name")
+  (interactive)
+  (if (string-equal (buffer-name) "*Org Agenda*")
+      (org-agenda-quit) (org-agenda-list)))
+
+(global-set-key (kbd "<f5>") 'interactively-open-org-agenda)

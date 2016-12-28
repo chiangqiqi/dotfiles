@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: di
+# key: di
+# --
+self: $1 => $2

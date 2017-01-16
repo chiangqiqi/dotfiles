@@ -24,3 +24,12 @@
 (add-hook 'org-pomodoro-killed-hook    
           (lambda ()
             (notify-osx "Pomodoro Killed" "One does not simply kill a pomodoro!")))
+
+;; add some electric pair for org-mode
+;; (defvar org-electric-pairs '((?/ . ?/) (?= . ?=)) "Electric pairs for org-mode.")
+
+;; (defun org-add-electric-pairs ()
+;;   (setq-local electric-pair-pairs (append electric-pair-pairs org-electric-pairs))
+;;   (setq-local electric-pair-text-pairs electric-pair-pairs))
+
+;; (add-hook 'org-mode-hook 'org-add-electric-pairs)

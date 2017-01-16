@@ -19,26 +19,6 @@
         (:eval (if (buffer-file-name)
                    (abbreviate-file-name (buffer-file-name)) "%b"))))
 
-(define-fringe-bitmap 'right-curly-arrow
-  [#b00000000
-   #b00000000
-   #b00000000
-   #b00000000
-   #b01110000
-   #b00010000
-   #b00010000
-   #b00000000])
-
-(define-fringe-bitmap 'left-curly-arrow
-  [#b00000000
-   #b00001000
-   #b00001000
-   #b00001110
-   #b00000000
-   #b00000000
-   #b00000000
-   #b00000000])
-
 (add-hook 'prog-mode-hook 'linum-mode)
 
 ;; http://stackoverflow.com/questions/3875213/turning-on-linum-mode-when-in-python-c-mode

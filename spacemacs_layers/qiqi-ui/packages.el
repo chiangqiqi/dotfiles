@@ -31,7 +31,6 @@
 
 (defconst qiqi-ui-packages
   '(
-    (zilong-mode-line :location built-in)
     diminish
     popwin
     (whitespace :location built-in)
@@ -48,11 +47,6 @@
       (diminish 'which-key-mode))
     (with-eval-after-load 'hungry-delete
       (diminish 'hungry-delete-mode))))
-
-(defun qiqi-ui/post-init-popwin ()
-  (progn
-    (push "*zilongshanren/run-current-file output*" popwin:special-display-config)
-    (delete "*Async Shell Command*" popwin:special-display-config)))
 
 (defun qiqi-ui/post-init-whitespace ()
   ;; 显示行首和行尾的whitespace

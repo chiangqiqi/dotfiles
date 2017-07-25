@@ -79,3 +79,6 @@
 (setq linum-delay t)
 (defadvice linum-schedule (around my-linum-schedule () activate)
   (run-with-idle-timer 0.1 nil #'linum-update-current))
+
+;; set fringle mode to false
+(setq fringe-mode nil)

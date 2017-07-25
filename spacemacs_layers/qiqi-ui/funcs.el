@@ -21,19 +21,6 @@
                     'face 'font-lock-preprocessor-face
                     'help-echo "Current Layout name.")))))
 
-(defun spaceline--unicode-number (str)
-  "Return a nice unicode representation of a single-digit number STR."
-  (cond
-   ((string= "1" str) "➊")
-   ((string= "2" str) "➋")
-   ((string= "3" str) "➌")
-   ((string= "4" str) "➍")
-   ((string= "5" str) "➎")
-   ((string= "6" str) "➏")
-   ((string= "7" str) "➐")
-   ((string= "8" str) "➑")
-   ((string= "9" str) "➒")
-   ((string= "0" str) "➓")))
 
 (defun window-number-mode-line ()
   "The current window number. Requires `window-numbering-mode' to be enabled."
@@ -59,3 +46,45 @@
     (if (string-match "\\(dos\\|unix\\|mac\\)" buf-coding)
         (match-string 1 buf-coding)
       buf-coding)))
+
+(defun show-file-name ()
+  "Show the full path file name in the minibuffer."
+  (interactive)
+  (message (buffer-file-name)))
+
+
+(defun write-region-delete-and-open
+    (start end filename)
+  "function takes current region, and writes it to specified file"
+  (interactive "r\nFFilename: ")
+  (write-region start end filename t)
+  (kill-region start end))
+
+;; browse url at point using eww
+(defun eww-browse-url-at-point (&optional arg)
+  "Ask a WWW browser to load the URL at or before point.
+Variable `browse-url-browser-function' says which browser to use.
+Optional prefix argument ARG non-nil inverts the value of the option
+`browse-url-new-window-flag'."
+  (interactive "P")
+  (let ((url (browse-url-url-at-point)))
+    (if url
+        (message (concat "url is " url))
+        (eww-browse-url url)
+      (error "No URL found"))))
+
+(defun find-first-non-ascii-char ()
+  "Find the first non-ascii character from point onwards."
+  (interactive)
+  (let (point)
+    (save-excursion
+      (setq point
+            (catch 'non-ascii
+              (while (not (eobp))
+                (or (eq (char-charset (following-char))
+                        'ascii)
+                    (throw 'non-ascii (point)))
+                (forward-char 1)))))
+    (if point
+        (goto-char point)
+      (message "No non-ascii characters."))))

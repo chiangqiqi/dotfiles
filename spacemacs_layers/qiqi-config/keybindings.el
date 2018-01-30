@@ -34,3 +34,8 @@
       (org-agenda-quit) (org-agenda-list)))
 
 (global-set-key (kbd "<f5>") 'interactively-open-org-agenda)
+
+(global-set-key (kbd "C-i") 'evil-jump-forward)
+
+(spacemacs/set-leader-keys "Tr" 'rand-theme)
+(global-set-key (kbd "<f13>") 'rand-theme)
